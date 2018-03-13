@@ -1,4 +1,4 @@
-#exit
+"""exit"""
 exit = "txt"
-#value
-value = 1 
+"""value"""
+value = 1
