@@ -23,4 +23,3 @@ s = Solve()
 
 print("Output:"),
 print(s.Circle("UD"))
-
