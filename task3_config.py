@@ -1,4 +1,4 @@
 """exit"""
-exit = "txt"
+output = "txt"
 """value"""
-value = 1
+value = 5
