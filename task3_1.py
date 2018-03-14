@@ -1,6 +1,5 @@
 #!/usr/bin/python
 import psutil
-import os
 import time
 import json
 import task3_config
@@ -10,18 +9,16 @@ class Myclass:
     """Class param"""
     """Counter"""
 
+    def __init__(self):
+        self.counter = 0
 
-def __init__(self):
-    self.counter = 0
-
-
-def params(self):
-    self.ram = str(psutil.virtual_memory().percent)
-    self.us = str(psutil.virtual_memory().used)
-    self.percent = str(psutil.cpu_percent())
-    self.io = str(psutil.disk_io_counters())
-    self.net = str(psutil.net_io_counters())
-    self.date = str(time.ctime())
+    def params(self):
+        self.ram = str(psutil.virtual_memory().percent)
+        self.us = str(psutil.virtual_memory().used)
+        self.percent = str(psutil.cpu_percent())
+        self.io = str(psutil.disk_io_counters())
+        self.net = str(psutil.net_io_counters())
+        self.date = str(time.ctime())
 
     """Write data to txt file"""
     def write_txt(self):
@@ -52,13 +49,15 @@ def params(self):
             js.write("\n")
             print(str(self.counter) + " json create")
 
+
 """evoke a class"""
 c1 = Myclass()
 
 
 while True:
-    if task3_config.exit == "txt":
+    if task3_config.output == "txt":
         c1.write_txt()
+        time.sleep(task3_config.value*60)
     else:
         c1.write_json()
-time.sleep(task3_config.value*60)
+        time.sleep(task3_config.value*60)
